@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org" th:replace="~{base::Layout(~{::section})}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Register page</title>
+</head>
+
+<body>
+	<section>
+		<div class="contrainer p-5">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center fs-4">Register Page</div>
+						
+						<th:block th:if="${msg}">		<!-- not using session.msg as we are using redirectAttributes -->
+							<p class="text-center fs-3 text-success">[[${msg}]]</p>
+						</th:block>
+						
+						<div class="card-body">
+							<form th:action="@{/createUser}" method="post" th:object="${user}">
+								<div class="mb-3">
+									<label>Enter Full Name</label> <input type="text" name="fullName"
+										class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Enter Email</label> <input type="text" name="email" class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Enter Address</label> <input type="text" name="address" class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Enter Qualification</label> <input type="text" name="qualification"
+										class="form-control" required>
+								</div>
+								<div class="mb-3">
+									<label>Enter Password</label> <input type="text" name="password"
+										class="form-control" required>
+								</div>
+								<button type="submit" class="btn btn-primary col-md-12">Register</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
